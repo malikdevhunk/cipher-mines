@@ -686,13 +686,19 @@ export default function App() {
       </section>
 
       <footer className="foot">
-        <span>
-          Built on the Zama Protocol by{" "}
-          <a href="https://saddammalik.com" target="_blank" rel="noreferrer">
-            Saddam Malik<span className="sr"> (opens in a new tab)</span>
-          </a>
-          . “Cipher Mines” and its mark are not covered by the code license.
-        </span>
+        <div className="foot-copy">
+          <p>
+            Designed, developed and built by{" "}
+            <a href="https://saddammalik.com" target="_blank" rel="noreferrer">
+              Saddam Malik<span className="sr"> (opens in a new tab)</span>
+            </a>
+            . Built on the Zama Protocol.
+          </p>
+          <p className="foot-disclaimer">
+            This project is not audited, endorsed or operated by Zama. Use at your own risk.
+          </p>
+          <p className="foot-note">“Cipher Mines” and its mark are not covered by the code license.</p>
+        </div>
         <span className="foot-links">
           <a href="#how">How it works</a>
           <a href="#ranks">Leaderboard</a>

@@ -6,6 +6,8 @@ until the round is settled.
 
 Built for the Zama Developer Program, Mainnet Season 5: Confidential Gaming.
 
+> This project is not audited, endorsed or operated by Zama. Use at your own risk.
+
 ![Cipher Mines mid-round on desktop](docs/screenshots/desktop.png)
 
 <img src="docs/screenshots/mobile.png" alt="Cipher Mines mid-round on a 390 px phone screen" width="280" />

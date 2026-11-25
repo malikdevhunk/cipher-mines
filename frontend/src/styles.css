@@ -1049,6 +1049,19 @@ h2 {
   color: var(--muted);
   font-size: 14px;
 }
+.foot-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 42rem;
+}
+.foot-copy p {
+  margin: 0;
+}
+.foot-disclaimer,
+.foot-note {
+  color: var(--muted);
+}
 .foot-links {
   display: flex;
   gap: var(--s4);
