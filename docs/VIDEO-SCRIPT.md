@@ -1,7 +1,7 @@
 # Cipher Mines: 3-minute pitch (teleprompter)
 
-Real person on camera, own voice. Target length is 2:50 to 3:00. Screen recording of the live app for the
-parts marked [SCREEN].
+Real person on camera, own voice. Target length is 2:50 to 3:00. Screen recording of the live app for the parts marked
+[SCREEN].
 
 ---
 

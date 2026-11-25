@@ -6,10 +6,12 @@
   "scripts": {
     "abi": "node scripts/export-abi.mjs",
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/post-build.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/martian-mono": "^5.3.0",
+    "@fontsource-variable/schibsted-grotesk": "^5.3.0",
     "@zama-fhe/relayer-sdk": "^0.4.1",
     "ethers": "^6.17.0",
     "react": "^18.3.1",
@@ -19,6 +21,7 @@
     "@types/react": "^18.3.32",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.7.0",
+    "terser": "^5.51.4",
     "typescript": "^5.9.3",
     "vite": "^6.4.6"
   }

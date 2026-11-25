@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found · Cipher Mines</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#eceee9" />
+    <link rel="icon" href="/cipher-mines/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #eceee9;
+        color: #12161b;
+        font:
+          16px/1.5 system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+      }
+      main {
+        width: min(440px, 100%);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin-bottom: 28px;
+      }
+      .grid i {
+        aspect-ratio: 1;
+        border-radius: 8px;
+        border: 1px solid rgba(18, 22, 27, 0.14);
+        background: repeating-linear-gradient(135deg, rgba(18, 22, 27, 0.05) 0 2px, transparent 2px 7px), #d4dadf;
+      }
+      .grid i.a {
+        background: #12161b;
+        border-color: #12161b;
+      }
+      .grid i.m {
+        background: #ff5a1f;
+        border-color: #12161b;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 40px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        text-wrap: balance;
+      }
+      p {
+        margin: 0 0 24px;
+        color: #39414b;
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+        height: 48px;
+        padding: 0 22px;
+        border-radius: 8px;
+        background: #12161b;
+        color: #eceee9;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      a:focus-visible {
+        outline: 2px solid #12161b;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="grid" aria-hidden="true">
+        <i></i><i></i><i class="a"></i><i></i><i></i> <i></i><i class="a"></i><i></i><i></i><i></i> <i></i><i></i
+        ><i class="m"></i><i></i><i></i> <i></i><i></i><i></i><i class="a"></i><i></i> <i></i><i></i><i></i><i></i
+        ><i></i>
+      </div>
+      <h1>That cell doesn’t exist.</h1>
+      <p>There is no page at this address. The board is back at the start.</p>
+      <a href="/cipher-mines/">Back to the minefield</a>
+    </main>
+  </body>
+</html>

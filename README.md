@@ -6,7 +6,9 @@ until the round is settled.
 
 Built for the Zama Developer Program, Mainnet Season 5: Confidential Gaming.
 
-![Cipher Mines on desktop](docs/screenshots/desktop.png)
+![Cipher Mines mid-round on desktop](docs/screenshots/desktop.png)
+
+<img src="docs/screenshots/mobile.png" alt="Cipher Mines mid-round on a 390 px phone screen" width="280" />
 
 ## The game
 
@@ -113,6 +115,34 @@ npx hardhat --network sepolia mines:play
 | `settle(player, cleartexts, proof)`       | Verifies the KMS proof, records score and map, updates leaderboard |
 | `getRound(player)` / `getHandles(player)` | Public round data / encrypted handles                              |
 | `getLeaderboard()`                        | Top 10 verified scores                                             |
+
+## Frontend hardening
+
+The frontend is a static dApp with no backend, so only the layers that apply to a public web client are used.
+
+| Layer                                                | Status  | What is done                                                                                                                                                                |
+| ---------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No secrets in the bundle                             | Applied | Only `VITE_CONTRACT_ADDRESS` (public) is read at build time. `scripts/post-build.mjs` fails the build on secret-like names, 64-hex strings, or source maps.                 |
+| Minified, mangled production JS                      | Applied | Terser with top-level mangling, `console` and `debugger` stripped, comments removed, **no source maps** shipped to Pages.                                                   |
+| Content-Security-Policy                              | Applied | Meta CSP injected at build: `default-src 'none'`, scripts and fonts from `'self'`, `connect-src` limited to Zama's relayer and its key bucket, no frames, objects or forms. |
+| Subresource Integrity                                | Applied | sha384 `integrity` attribute on every built script and stylesheet. `dist/SHA256SUMS` lists a checksum for each build file.                                                  |
+| Integrity of game results                            | Applied | The KMS decryption proof is verified on-chain (`FHE.checkSignatures`) before a result counts. This is the dApp equivalent of request signing.                               |
+| LICENSE and brand note                               | Applied | See below.                                                                                                                                                                  |
+| Backend isolation, HMAC-signed API calls             | Skipped | There is no server and no API secret. A key shipped to a browser would not be secret.                                                                                       |
+| R8/ProGuard, RASP, SSL pinning, AES asset encryption | Skipped | Mobile-app layers; a web page cannot pin certificates or verify its own signature.                                                                                          |
+| Control-flow obfuscation, anti-LLM decoys            | Skipped | The full source is public on GitHub by design, and heavy obfuscation risks breaking the WASM SDK. Decoys in contract code would only cost gas.                              |
+
+Reduced-motion users get a still board. All animation, including the JS-driven ciphertext drift, stops with
+`prefers-reduced-motion`.
+
+Report a vulnerability through the contact form on [saddammalik.com](https://saddammalik.com). Please do not open a
+public issue for one.
+
+## Brand
+
+Code is licensed as below. The name **Cipher Mines**, its 3 × 3 logo mark and the screenshots are not licensed for reuse
+in a way that suggests your project is this one. Forks are welcome; rename them. Misuse of the name or mark can be
+reported for takedown.
 
 ## License
 
